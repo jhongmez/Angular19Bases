@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 
 @Component({
 	selector: "app-counter-page",
@@ -14,12 +14,16 @@ import { Component } from "@angular/core";
 export class CounterPageComponent {
 
 	public counter: number = 10;
+	public counterSignal = signal(10);
 
 	increaseBy( value: number ) {
 		this.counter += value;
+		// * La forma correcta de actualizar un signal es con el método update
+		this.counterSignal.update( (current) => current + value)
 	}
 
 	resetCounter() {
-		this.counter = 10;
+		this.counter = 0;
+		this.counterSignal.set(0);
 	}
 }
