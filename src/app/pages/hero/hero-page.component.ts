@@ -1,20 +1,20 @@
-import { Component, signal } from "@angular/core";
-import { UpperCasePipe } from '@angular/common';
+import { Component, computed, signal } from "@angular/core";
 
 
 @Component({
 	selector: 'app-hero-page',
 	templateUrl: './hero-page.component.html',
-	imports: [UpperCasePipe],
 })
 export class HeroPageComponent {
 
 	public name = signal('Ironman');
 	public age = signal(45);
-
-	getHeroDescription() {
-		return `${this.name} - ${this.age}`;
-	}
+	public heroDescription = computed( () => {
+		return `${this.name()} - ${this.age()}`;
+	})
+	public capitalizeName = computed( () => {
+		return this.name().toUpperCase();
+	})
 
 	changeHero() {
 		// * La forma correcta de actualizar un signal es con el método update
