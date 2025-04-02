@@ -12,8 +12,13 @@
 
 	<div class="col-12 col-sm-6">
 		<h3>Listado de personajes:</h3>
-		<ol>
-			<li>Goku</li>
-		</ol>
+		<ul>
+			@for( character of characters(); track character.id; let idx = $index, e = $even  ) {
+				<li>
+					<span>{{ idx + 1 }} - {{ character.name }}</span>
+					<strong> ({{ character.power }})</strong>
+				</li>
+			}
+		</ul>
 	</div>
 </section>
