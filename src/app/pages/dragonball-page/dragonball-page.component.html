@@ -2,7 +2,7 @@
 <hr>
 <section class="row">
 	<div class="col-12 col-sm-6">
-		<h3>Agregar personaje: {{ name() }}</h3>
+		<h3>Agregar personaje: {{ name() }}({{ power() }})</h3>
 		<input
 			type="text"
 			class="form-control"
@@ -15,9 +15,15 @@
 			type="number"
 			class="form-control mt-2"
 			placeholder="Poder"
+			[value]="power()"
+			(input)="power.set( +txtPower.value )"
+			#txtPower
 		/>
-		<button class="mt-2 btn btn-primary">
+		<button (click)="addCharacter()" class="mt-2 btn btn-primary">
 			Añadir
+		</button>
+		<button (click)="resetFields()" class="ml-2 mt-2 btn btn-info">
+			Limpiar
 		</button>
 	</div>
 
