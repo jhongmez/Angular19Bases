@@ -28,21 +28,6 @@
 	</div>
 
 	<div class="col-12 col-sm-6">
-		<h3>Listado de personajes:</h3>
-		<ul>
-			@for( character of characters(); track character.id; let idx = $index, e = $even  ) {
-				@if ( character.power > 30000) {
-					<li>
-						<span>{{ idx + 1 }} - {{ character.name }}</span>
-						<strong
-							[class.text-danger]="character.power > 80000"
-							[class.text-primary]="character.power < 80000"
-						>
-							({{ character.power }})
-						</strong>
-					</li>
-				}
-			}
-		</ul>
+		<dragonball-character-list [characters]="characters()"/>
 	</div>
 </section>
