@@ -13,14 +13,14 @@ interface Character {
 })
 export class DragonballPageComponent {
 
-	name = signal('Gohan');
-	power = signal(56000);
+	name = signal('');
+	power = signal(0);
 
 	characters = signal<Character[]>([
 		{ id: 1, name: 'Goku', power: 90001 },
-		{ id: 2, name: 'Vegeta', power: 70000 },
-		{ id: 3, name: 'Trunks', power: 30000 },
-		{ id: 4, name: 'Piccolo', power: 40000 },
+		// { id: 2, name: 'Vegeta', power: 70000 },
+		// { id: 3, name: 'Trunks', power: 30000 },
+		// { id: 4, name: 'Piccolo', power: 40000 },
 	]);
 
 	addCharacter() {
