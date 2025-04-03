@@ -1,4 +1,4 @@
-<h3>Listado de personajes:</h3>
+<h3>{{ listName()}}</h3>
 <ul>
 	@for( character of characters(); track character.id; let idx = $index, e = $even  ) {
 		@if ( character.power > 30000) {
